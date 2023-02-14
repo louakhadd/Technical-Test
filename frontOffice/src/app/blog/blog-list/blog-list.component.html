@@ -1,0 +1,47 @@
+<!-- Blog Start -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="container py-5">
+    <div class="row g-5">
+      <!-- Blog list Start -->
+      <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+        <div class="col-lg-12">
+          <button class="btn btn-primary py-1 mb-5" type="submit" (click)="addBlog()">Ajouter un article</button>
+
+          <div class="row">
+            <div class="col-md-3"><input type="text" matInput placeholder="Title" formControlName="title" class="75"></div>
+            <div class="col-md-3"><input type="text" matInput placeholder="Author" formControlName="author" class="75"></div>
+            <div class="col-md-3"><input type="text" matInput placeholder="Content" formControlName="content" class="75"></div>
+            <div class="col-md-2"><button matButton type="submit" class="btn-primary">Search <mat-icon>search</mat-icon></button></div>
+            <div class="col-md-1"><button matButton (click)="reset()">Reset</button></div>
+          </div>
+
+        </div>
+      </form>
+        <div class="row g-5">
+          <div class="col-md-4 wow slideInUp" data-wow-delay="0.1s" *ngFor="let blog of blogs">
+            <div [ngStyle]="{ 'border': blog.upvote > blog.downvote ? '2px solid green' : '2px solid red'}">
+            <div class="blog-item bg-light rounded overflow-hidden">
+              <div class="blog-img position-relative overflow-hidden">
+                <img class="img-fluid" src="assets/img/blog-1.jpg" alt="">
+              </div>
+              <div class="p-4">
+                <div class="d-flex mb-3">
+                  <small class="me-3"><i class="far fa-user text-primary me-2"></i>{{blog.author}}</small>
+                </div>
+                <h4 class="mb-3">{{blog.title}}</h4>
+                <p>{{blog.content.substring(0,60)}}</p>
+                <button class="btn btn-primary py-1" type="submit" (click)="getBlogDetails(blog.id)">Read More <i class="bi bi-arrow-right"></i></button>
+                <div class="d-inline m-lg-5">
+                {{blog.upvote}} <mat-icon> thumb_up</mat-icon>
+                {{blog.downvote}} <mat-icon>thumb_down</mat-icon>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      <!-- Blog list End -->
+    </div>
+  </div>
+</div>
+<!-- Blog End -->

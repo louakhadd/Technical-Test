@@ -1,0 +1,24 @@
+<div class="row g-5 justify-content-center mt-auto" >
+  <div class="col-lg-6 wow slideInUp" data-wow-delay="0.3s">
+    <form [formGroup]="articleForm" (ngSubmit)="onSubmit()">
+      <div class="row g-3">
+<!--        <div class="col-md-6">-->
+<!--          <input type="text" class="form-control border-0 bg-light px-4" placeholder="Your Name" style="height: 55px;">-->
+<!--        </div>-->
+        <div class="col-md-12">
+          <input type="text" class="form-control border-0 bg-light px-4" placeholder="Author" style="height: 55px;" formControlName="author">
+        </div>
+        <div class="col-12">
+          <input type="text" class="form-control border-0 bg-light px-4" placeholder="Title" style="height: 55px;" formControlName="title">
+        </div>
+        <div class="col-12">
+          <textarea class="form-control border-0 bg-light px-4 py-3" rows="4" placeholder="Content" formControlName="content"></textarea>
+        </div>
+        <div class="col-12">
+          <button nbButton class="btn btn-primary w-100 py-3" type="submit">Ajouter </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

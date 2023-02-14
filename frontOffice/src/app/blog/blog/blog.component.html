@@ -1,0 +1,54 @@
+<!-- Blog Start -->
+<div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+  <div class="container py-5">
+    <div class="row g-5">
+      <div class="col-lg-8">
+        <!-- Blog Detail Start -->
+        <div class="mb-5">
+          <img class="img-fluid w-100 rounded mb-5" src="assets/img/blog-1.jpg" alt="">
+          <h1 class="mb-4">{{blog.title}}</h1>
+          <p>{{blog.content}}</p>
+        </div>
+
+        <div class="mb-5">
+          <h5 class="mb-4">Leave your opinion</h5>
+          {{blog.upvote}} <mat-icon (click)="voteForBlog(blog.id, true)"> thumb_up</mat-icon>
+          {{blog.downvote}} <mat-icon (click)="voteForBlog(blog.id,false)">thumb_down</mat-icon>
+        </div>
+        <!-- Blog Detail End -->
+
+      </div>
+
+      <!-- Sidebar Start -->
+      <div class="col-lg-4">
+        <!-- Search Form Start -->
+        <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+          <div class="input-group">
+            <input type="text" class="form-control p-3" placeholder="Keyword">
+            <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>
+<!--            <button class="btn btn-primary px-4"><i class="bi bi-search"></i></button>-->
+          </div>
+        </div>
+        <!-- Search Form End -->
+
+        <!-- Recent Post Start -->
+        <div class="mb-5 wow slideInUp" data-wow-delay="0.1s">
+          <div class="section-title section-title-sm position-relative pb-3 mb-4">
+            <h3 class="mb-0">Recent Post</h3>
+          </div>
+          <div class="d-flex rounded overflow-hidden mb-3" *ngFor="let b of blogs">
+            <img class="img-fluid" src="assets/img/blog-1.jpg" style="width: 100px; height: 100px; object-fit: cover;" alt="">
+            <a href="" class="h5 fw-semi-bold d-flex align-items-center bg-light px-3 mb-0">{{b.title}}
+            </a>
+          </div>
+
+        </div>
+        <!-- Recent Post End -->
+
+
+      </div>
+      <!-- Sidebar End -->
+    </div>
+  </div>
+</div>
+<!-- Blog End -->
